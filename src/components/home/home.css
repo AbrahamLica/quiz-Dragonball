@@ -19,7 +19,13 @@ body, html {
 .mainContainer button {
     margin-top: 15px;
     padding: 10px;
+    background-color: red;
     color: black;
     border-radius: 10px;
     cursor: pointer;
+    font-size: 25px;
+}
+
+.mainContainer h1 {
+    font-size: 50px;
 }

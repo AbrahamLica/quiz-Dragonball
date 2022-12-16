@@ -1,27 +1,53 @@
-import { createContext, useReducer } from "react";
+import {createContext, useReducer } from "react";
 import perguntas from '../data/questions'
-import { ActionType, initialStateType } from "../types/Types";
+import { ActionType, ReducerInitialStateType, ChildrenType, ContextType, InitialStateContextType } from "../types/Types";
 
+//////////////////////////// > > REDUCER < < ///////////////////////////////////
 
-export const stages = ['Start', 'Playing', 'End']
-
-export const initialState: initialStateType = {
-    gameStage: stages[0],
+export const ReducerinitialState: ReducerInitialStateType = {
+    gameStage: 'Start',
     perguntas,
     perguntaAtual: 0,
-    pontuacao: 0,
+    placar: 0,
     respostaSelecionada: false
 }
 
-export function reducer(state: initialStateType, action: ActionType) {
+export function reducer(state: ReducerInitialStateType, action: ActionType) {
 
+    switch (action.type) {
+        case 'START_GAME':
+            return {...state, gameStage: action.payload.gameStage};
+            break;
+
+        case 'NEXT_QUESTION':
+            return {...state, perguntaAtual: state.perguntaAtual + 1};
+            break;
+            
+    } 
+    return state 
 }
 
-export const Context = createContext(initialState)
+///////////////////////// > > CONTEXT < < //////////////////////////////////
 
-export function ContextProvider({children}) {
+const ContextInitialState = {
+    quiz: ReducerinitialState
+}
+
+export const Context = createContext<ContextType>({
+    state: ContextInitialState,
+    dispatch: () => null
+})
+
+const mainReducer = (state: InitialStateContextType, action: ActionType) => ({
+    quiz: reducer(state.quiz, action)
+})
+
+export function ContextProvider({children}: ChildrenType) {
+
+    const [state, dispatch] = useReducer(mainReducer, ContextInitialState)
+
     return(
-        <Context.Provider value={'teste'}>
+        <Context.Provider value={{state, dispatch}}>
             {children}
         </Context.Provider>
     )

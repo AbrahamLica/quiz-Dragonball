@@ -1,4 +1,7 @@
- const data = [
+import { DataType } from "../types/Types"
+
+
+ const data: DataType[] = [
     {
         pergunta: 'Qual é o nome do protagonista?',
         alternativas: [
@@ -29,6 +32,39 @@
             'Cell',
             'Androide 18',
             'Cell'
+        ],
+        resposta: 'Majin Bull'
+    },
+    {
+        pergunta: 'Qual o nome do vilão verde?',
+        alternativas: [
+            'Majin Bull',
+            'Sayaman',
+            'Cell',
+            'Androide 18',
+            'Cell'
+        ],
+        resposta: 'Majin Bull'
+    },
+    {
+        pergunta: 'Qual o nome do pai da videl?',
+        alternativas: [
+            'Mr. satan',
+            'broly',
+            'Cell',
+            'Androide 18',
+            'Cell'
+        ],
+        resposta: 'Majin Bull'
+    },
+    {
+        pergunta: 'Qual a cor da roupa do goku?',
+        alternativas: [
+            'Laranja',
+            'Rosa',
+            'vermelha',
+            'amarela',
+            'verde'
         ],
         resposta: 'Majin Bull'
     }

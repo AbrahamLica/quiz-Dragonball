@@ -1,20 +1,35 @@
+import React from "react"
 
-export type initialStateType = {
-    gameStage: string
-    perguntas: [{
-        pergunta: string
-        alternativas: string[]
-        resposta: string
-    }]
-}
+export type DataType = {
+    pergunta: string
+    alternativas: string[]
+    resposta: string
+ }
 
-export type StateType = {
-    
+export type ReducerInitialStateType = {
+  gameStage: string
+  perguntas: DataType[]
+  perguntaAtual: number
+  placar: number
+  respostaSelecionada: boolean
 }
 
 export type ActionType = {
     type: string
     payload: {
-        name: string
+        [key: string]: any;
     }
+}
+
+export type ChildrenType = {
+    children: React.ReactNode
+}
+
+export type ContextType = {
+    state: InitialStateContextType;
+    dispatch: React.Dispatch<any>;
+}
+
+export type InitialStateContextType = {
+    quiz: ReducerInitialStateType
 }
