@@ -1,0 +1,25 @@
+* {
+    color: white;
+}
+
+body, html {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mainContainer {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.mainContainer button {
+    margin-top: 15px;
+    padding: 10px;
+    color: black;
+    border-radius: 10px;
+    cursor: pointer;
+}
