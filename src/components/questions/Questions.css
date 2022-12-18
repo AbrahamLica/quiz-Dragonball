@@ -2,50 +2,83 @@
     color: white;
 }
 
-body, html {
+.centralContainerQuestions {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-image: url('../../imgs/questions-background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
 }
 
-.mainContainer {
-    width: 500px;
+.mainContainerQuestions {
+    width: 40vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    
 }
 
-.mainContainer button {
-    margin-top: 15px;
+.mainContainerQuestions button {
     padding: 10px;
     color: black;
     border-radius: 10px;
     cursor: pointer;
+    font-size: 30px;
 }
 
-.mainContainer h1 {
+.mainContainerQuestions h1 {
     text-align: center;
+    background-color: rgb(255, 102, 0);
+    padding: 15px;
+    border-radius: 20px;
 }
 
-.alternativasContainer {
+.alternativasContainer { 
     padding: 50px;
-    background-color: blue;
-    width: 90%;
+    width: 100%;
     margin-top: 50px;
     margin-bottom: 50px;
-    border-radius: 10px;
+    border-radius: 20px;
 }
 
 .itemContainer {
     padding: 10px;
-    background-color: red;
-    margin-top: 10px;
-    border-radius: 10px;
+    background-image: url('../../imgs/esferas.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: brown;
+    margin-top: 40px;
+    border-radius: 20px;
     cursor: pointer;
+    color: black;
+}
+
+.itemContainerCorrect {
+    padding: 10px;
+    background-color: green;
+    margin-top: 40px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 35px;
+    color: black;
+}
+
+.itemContainerWrong {
+    padding: 10px;
+    background-color: red;
+    margin-top: 40px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 35px;
+    color: black;
 }
 
 .itemContainer p {
-    font-size: 30px;
+    font-size: 35px;
 }
 

@@ -15,7 +15,7 @@ const Questions = () => {
       navigate('/endgame')
     } else {
       dispatch({
-        type: 'NEXT_QUESTION',
+        type: 'NEXT_QUESTION'
       })
     }
   }
@@ -23,23 +23,36 @@ const Questions = () => {
  
 
   return (
-    <div className="mainContainer">
+    <div className="centralContainerQuestions">
+    <div className="mainContainerQuestions">
           <h1>{perguntaAtual.pergunta}</h1>
           <div className="alternativasContainer">
           {perguntaAtual.alternativas.map((item, index, respostaCerta) => (
               <div
-                className="itemContainer"
+                className={`itemContainer${
+                  state.quiz.respostaSelecionada && item === state.quiz.perguntas[state.quiz.perguntaAtual].resposta ? 'Correct': ''
+                } ${state.quiz.respostaSelecionada && item !== state.quiz.perguntas[state.quiz.perguntaAtual].resposta ? 'Wrong' : ''}`}
                 key={index}
                 respostaCerta={perguntaAtual}
                 onClick={() =>
-                {if(state.quiz.perguntas[state.quiz.perguntaAtual].resposta == item) {
+                {if(state.quiz.perguntas[state.quiz.perguntaAtual].resposta === item) {
                   console.log('resposta correta')
-                } else {console.log('reposta errada')}} }>
+                } else {console.log('reposta errada')}
+
+                dispatch({
+                  type: 'CHECK_QUESTION',
+                  payload: {
+                    resposta: state.quiz.perguntas[state.quiz.perguntaAtual].resposta, item
+                  }
+                })}}>  
                 <p>{item}</p>
               </div>
             ))}
           </div>
-          <button onClick={nextQuestion}>Avançar</button>
+
+          {state.quiz.respostaSelecionada && (<button onClick={nextQuestion}>Avançar</button>)}
+          
+    </div>
     </div>
   )
 }

@@ -20,10 +20,23 @@ export function reducer(state: ReducerInitialStateType, action: ActionType) {
             break;
 
         case 'NEXT_QUESTION':
-            return {...state, perguntaAtual: state.perguntaAtual + 1};
+            return {...state, perguntaAtual: state.perguntaAtual + 1, respostaSelecionada: false};
             break;
-            
+
+        case 'CHECK_QUESTION':
+            const resposta = action.payload.resposta
+            const item = action.payload.item
+            var correctanswer = 0
+            if(resposta === item) {
+                correctanswer = 1
+            }
+            return {...state, placar: state.placar + correctanswer, respostaSelecionada: item}
+            break;  
+
+        case 'RESTART_GAME':
+            return(ReducerinitialState)
     } 
+
     return state 
 }
 

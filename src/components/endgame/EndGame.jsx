@@ -11,13 +11,22 @@ const EndGame = () => {
 
     function reiniciarGame() {
         navigate('/')
+        dispatch({
+          type: 'RESTART_GAME'
+        })
+    }
+
+    function teste() {
+      console.log(state.quiz.placar)
     }
 
   return (
     <div>
-        EndGame
+        <h1>Placar: {state.quiz.placar}</h1>
 
         <button onClick={reiniciarGame}>Reiniciar</button>
+
+        <button onClick={teste}>teste</button>
     </div>
   )
 }

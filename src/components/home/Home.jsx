@@ -21,9 +21,11 @@ const Home = () => {
   }
 
   return (
-    <div className='mainContainer'>
-        <h1>Quiz Comum</h1>
-        <button onClick={iniciarGame}>Iniciar Quiz</button>
+    <div className='centralContainerHome'>
+      <div className='mainContainer'>
+          <h2>Quiz Dragon Ball</h2>
+          <button onClick={iniciarGame}>Iniciar Quiz</button>
+      </div>
     </div>
   )
 }

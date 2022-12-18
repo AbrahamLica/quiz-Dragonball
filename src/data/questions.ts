@@ -42,9 +42,9 @@ import { DataType } from "../types/Types"
             'Sayaman',
             'Cell',
             'Androide 18',
-            'Cell'
+            'Kami-Sama'
         ],
-        resposta: 'Majin Bull'
+        resposta: 'Cell'
     },
     {
         pergunta: 'Qual o nome do pai da videl?',
@@ -55,7 +55,7 @@ import { DataType } from "../types/Types"
             'Androide 18',
             'Cell'
         ],
-        resposta: 'Majin Bull'
+        resposta: 'Mr. satan'
     },
     {
         pergunta: 'Qual a cor da roupa do goku?',
@@ -66,7 +66,7 @@ import { DataType } from "../types/Types"
             'amarela',
             'verde'
         ],
-        resposta: 'Majin Bull'
+        resposta: 'Laranja'
     }
 ]
 
