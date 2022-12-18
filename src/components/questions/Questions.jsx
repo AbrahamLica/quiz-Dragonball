@@ -7,10 +7,10 @@ const Questions = () => {
 
   const {state, dispatch} = useContext(Context)
   const perguntaAtual = state.quiz.perguntas[state.quiz.perguntaAtual]
-  // const respostaPerguntaAtual = state.quiz.perguntas[state.quiz.perguntaAtual]
   const navigate = useNavigate()
 
   function nextQuestion() {
+    
     if (state.quiz.perguntaAtual === 5) {
       navigate('/endgame')
     } else {
@@ -20,16 +20,7 @@ const Questions = () => {
     }
   }
 
-  function checkQuestion(respostaCerta) {
-
-    console.log()
-
-    // if (item.resposta === item) {
-    //     console.log('correct!')  
-    // } else {
-    //     console.log('incorect!')
-    // }
-  }
+ 
 
   return (
     <div className="mainContainer">
@@ -39,8 +30,11 @@ const Questions = () => {
               <div
                 className="itemContainer"
                 key={index}
-                respostaCerta={perguntaAtual.resposta}
-                onClick={() => checkQuestion(respostaCerta)}>
+                respostaCerta={perguntaAtual}
+                onClick={() =>
+                {if(state.quiz.perguntas[state.quiz.perguntaAtual].resposta == item) {
+                  console.log('resposta correta')
+                } else {console.log('reposta errada')}} }>
                 <p>{item}</p>
               </div>
             ))}
