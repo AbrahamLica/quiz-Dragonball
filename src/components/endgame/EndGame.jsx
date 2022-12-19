@@ -2,6 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
 import { Context } from '../../context/Context'
+import './EndGame.css'
 
 const EndGame = () => {
     
@@ -15,18 +16,20 @@ const EndGame = () => {
           type: 'RESTART_GAME'
         })
     }
-
-    function teste() {
-      console.log(state.quiz.placar)
-    }
-
+    
   return (
-    <div>
-        <h1>Placar: {state.quiz.placar}</h1>
+    <div className='centralContainerEndGame'>
+      <div className='mainContainerEndGame'>
+        <div className='containerInformations'>
+            <p>Placar: {state.quiz.placar}</p>
+            <p>Você acertou {state.quiz.placar} de {state.quiz.perguntas.length} perguntas</p>
+        </div>
+        <div className='containerButton'>
+            <button onClick={reiniciarGame}>Reiniciar</button>
+        </div>
 
-        <button onClick={reiniciarGame}>Reiniciar</button>
-
-        <button onClick={teste}>teste</button>
+        <p className='author'>By Abraham Licá</p>
+      </div>
     </div>
   )
 }

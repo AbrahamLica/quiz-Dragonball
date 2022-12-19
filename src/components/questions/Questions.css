@@ -47,11 +47,7 @@
 
 .itemContainer {
     padding: 10px;
-    background-image: url('../../imgs/esferas.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-color: brown;
+    background-color: rgb(234, 33, 33);
     margin-top: 40px;
     border-radius: 20px;
     cursor: pointer;
@@ -65,7 +61,6 @@
     border-radius: 20px;
     cursor: pointer;
     font-size: 35px;
-    color: black;
 }
 
 .itemContainerWrong {
@@ -75,10 +70,11 @@
     border-radius: 20px;
     cursor: pointer;
     font-size: 35px;
-    color: black;
+    
 }
 
 .itemContainer p {
     font-size: 35px;
+    color: white;
 }
 
