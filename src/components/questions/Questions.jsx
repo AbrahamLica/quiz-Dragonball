@@ -2,29 +2,47 @@ import { useContext } from "react";
 import { Context } from "../../context/Context";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useEffect } from "react";
 import "./Questions.css";
 
 const Questions = () => {
   const { state, dispatch } = useContext(Context);
-  const perguntaAtual = state.quiz.perguntas[state.quiz.perguntaAtual];
+  const [arrayQuestions, setArrayQuestions] = useState(state.quiz.perguntas)
+  const [arrayQuestionsShuffled, setArrayQuestionsShuffled] = useState([])
+  const perguntaAtual =  arrayQuestionsShuffled[state.quiz.perguntaAtual];
+  const [pode, setPode] = useState(false)
   const navigate = useNavigate();
 
-  function nextQuestion() {
-    if (state.quiz.perguntaAtual === 5) {
-      navigate("/endgame");
-    } else {
-      dispatch({
-        type: "NEXT_QUESTION",
-      });
+  useEffect(() => {
+    for (var i = arrayQuestions.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = arrayQuestions[i];
+      arrayQuestions[i] = arrayQuestions[j];
+      arrayQuestions[j] = temp;
     }
+    setArrayQuestionsShuffled(arrayQuestions)
+    console.log(arrayQuestionsShuffled)
+    
+  });
+
+  function nextQuestion() {
+    // if (state.quiz.perguntaAtual === 5) {
+    //   navigate("/endgame");
+    // } else {
+    //   dispatch({
+    //     type: "NEXT_QUESTION",
+    //   });
+    // }
+
+    setPode(true)
   }
 
   return (
     <div className="centralContainerQuestions">
       <div className="mainContainerQuestions">
-        <h1>{perguntaAtual.pergunta}</h1>
+        {/* <h1>{perguntaAtual.pergunta}</h1> */}
 
-        <div className="alternativasContainer">
+        {pode ? <div className="alternativasContainer">
           {perguntaAtual.alternativas.map((item, index) => (
             <div
               className={`itemContainer ${
@@ -55,13 +73,14 @@ const Questions = () => {
               <p>{item}</p>
             </div>
           ))}
-        </div>
+        </div>: null}
+        
 
-        {state.quiz.respostaSelecionada && (
+        {/* {state.quiz.respostaSelecionada && ( */}
           <button onClick={nextQuestion} className="nextQuestion">
             Avançar
           </button>
-        )}
+        {/* )} */}
       </div>
     </div>
   );
