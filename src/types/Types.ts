@@ -12,6 +12,7 @@ export type ReducerInitialStateType = {
   perguntaAtual: number
   placar: number
   respostaSelecionada: boolean
+  respostaEscolhidaQuiz: string
 }
 
 export type ActionType = {

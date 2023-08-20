@@ -9,7 +9,8 @@ export const ReducerinitialState: ReducerInitialStateType = {
     perguntas,
     perguntaAtual: 0,
     placar: 0,
-    respostaSelecionada: false
+    respostaSelecionada: false,
+    respostaEscolhidaQuiz: ''
 }
 
 export function reducer(state: ReducerInitialStateType, action: ActionType) {
@@ -30,7 +31,7 @@ export function reducer(state: ReducerInitialStateType, action: ActionType) {
             if(resposta === item) {
                 correctanswer = 1
             }
-            return {...state, placar: state.placar + correctanswer, respostaSelecionada: item}
+            return {...state, placar: state.placar + correctanswer, respostaEscolhidaQuiz: action.payload.item, respostaSelecionada: true}
             break;  
 
         case 'RESTART_GAME':
