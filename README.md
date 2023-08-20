@@ -32,20 +32,3 @@ Um Quiz de Dragon ball, criado com o intuito de testar minhas habilidades com re
 
 
 
-
-## Referência
-
- - [Link da vídeo aula](https://www.youtube.com/watch?v=cz7AoKGcwlY) 👈
-
-
-
-## Autor
-
-- [@AbrahamLica](https://www.github.com/AbrahamLica)  👈
-
-
-## imagem
-
-<img src="/imagens/cordel.png">
-
-<img src="/imagens/meu-logo-branco.png">
