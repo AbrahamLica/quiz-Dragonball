@@ -61,6 +61,19 @@ const data: DataType[] = [
     ],
     resposta: "Kuririn",
   },
+
+  {
+    pergunta:
+      "Quem é o rival do Goku?",
+    alternativas: [
+      "Trunks",
+      "Kuririn",
+      "Goten",
+      "Vegeta",
+      "Picollo",
+    ],
+    resposta: "Vegeta",
+  },
 ];
 
 export default data;

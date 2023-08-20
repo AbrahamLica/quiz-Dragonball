@@ -28,7 +28,7 @@ const EndGame = () => {
             <button onClick={reiniciarGame}>Reiniciar</button>
         </div>
 
-        <p className='author'>By Abraham Licá</p>
+        <p className='author'>By <a href="https://github.com/AbrahamLica" target='_blank'>Abraham Licá</a></p>
       </div>
     </div>
   )

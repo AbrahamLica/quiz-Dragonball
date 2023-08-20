@@ -17,17 +17,17 @@ html, body {
     height: 100vh;
     width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .mainContainer {
-    width: 50vw;
+    /* background-color: red; */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 24rem;
 }
 
 .mainContainer h2 {
@@ -49,4 +49,19 @@ html, body {
 
 .mainContainer h1 {
     font-size: 50px;
+}
+
+.containerImgs {
+    background-color: white;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.containerImgs img {
+ width: 50px;
+ cursor: pointer;
+ margin-left: 10px;
+ margin-right: 10px;
 }

@@ -7,10 +7,9 @@ import "./Questions.css";
 
 const Questions = () => {
   const { state, dispatch } = useContext(Context);
-  const [arrayQuestions, setArrayQuestions] = useState(state.quiz.perguntas)
-  const [arrayQuestionsShuffled, setArrayQuestionsShuffled] = useState([])
-  const perguntaAtual =  arrayQuestionsShuffled[state.quiz.perguntaAtual];
-  const [pode, setPode] = useState(false)
+  const [arrayQuestions, setArrayQuestions] = useState(state.quiz.perguntas);
+  const [arrayQuestionsShuffled, setArrayQuestionsShuffled] = useState([]);
+  const perguntaAtual = arrayQuestionsShuffled[state.quiz.perguntaAtual];
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -20,37 +19,43 @@ const Questions = () => {
       arrayQuestions[i] = arrayQuestions[j];
       arrayQuestions[j] = temp;
     }
-    setArrayQuestionsShuffled(arrayQuestions)
-    console.log(arrayQuestionsShuffled)
-    
-  });
+    setArrayQuestionsShuffled(arrayQuestions);
+  }, []);
 
   function nextQuestion() {
-    // if (state.quiz.perguntaAtual === 5) {
-    //   navigate("/endgame");
-    // } else {
-    //   dispatch({
-    //     type: "NEXT_QUESTION",
-    //   });
-    // }
+    if (state.quiz.perguntaAtual === arrayQuestionsShuffled.length - 1) {
+      navigate("/endgame");
+    } else {
+      dispatch({
+        type: "NEXT_QUESTION",
+      });
+    }
 
-    setPode(true)
+    console.log(state.quiz.perguntaAtual);
+    console.log(arrayQuestionsShuffled.length);
   }
 
   return (
     <div className="centralContainerQuestions">
       <div className="mainContainerQuestions">
-        {/* <h1>{perguntaAtual.pergunta}</h1> */}
 
-        {pode ? <div className="alternativasContainer">
-          {perguntaAtual.alternativas.map((item, index) => (
-            <div
-              className={`itemContainer ${
-                state.quiz.respostaSelecionada &&
-                item === state.quiz.perguntas[state.quiz.perguntaAtual].resposta
-                  ? "correct"
-                  : ""
-              } 
+        <div>
+          {arrayQuestionsShuffled.length ? (
+            <h1>{perguntaAtual.pergunta}</h1>
+          ) : null}
+        </div>
+
+        {arrayQuestionsShuffled.length ? (
+          <div className="alternativasContainer">
+            {perguntaAtual.alternativas.map((item, index) => (
+              <div
+                className={`itemContainer ${
+                  state.quiz.respostaSelecionada &&
+                  item ===
+                    state.quiz.perguntas[state.quiz.perguntaAtual].resposta
+                    ? "correct"
+                    : ""
+                } 
               
               ${
                 state.quiz.respostaSelecionada &&
@@ -58,29 +63,29 @@ const Questions = () => {
                   ? "wrong"
                   : ""
               }`}
-              key={index}
-              onClick={() => {
-                dispatch({
-                  type: "CHECK_QUESTION",
-                  payload: {
-                    resposta:
-                      state.quiz.perguntas[state.quiz.perguntaAtual].resposta,
-                    item: item,
-                  },
-                });
-              }}
-            >
-              <p>{item}</p>
-            </div>
-          ))}
-        </div>: null}
-        
+                key={index}
+                onClick={() => {
+                  dispatch({
+                    type: "CHECK_QUESTION",
+                    payload: {
+                      resposta:
+                        state.quiz.perguntas[state.quiz.perguntaAtual].resposta,
+                      item: item,
+                    },
+                  });
+                }}
+              >
+                <p>{item}</p>
+              </div>
+            ))}
+          </div>
+        ) : null}
 
-        {/* {state.quiz.respostaSelecionada && ( */}
+        {state.quiz.respostaSelecionada && (
           <button onClick={nextQuestion} className="nextQuestion">
             Avançar
           </button>
-        {/* )} */}
+        )}
       </div>
     </div>
   );
