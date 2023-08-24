@@ -6,18 +6,9 @@ Um Quiz de Dragon ball, criado com o intuito de testar minhas habilidades com re
 
 # Tecnologias usadas
 
-#### Linguagem
-- Javascript
-
-
-#### Framework
-- React
-
-#### Estilização
-- CSS3
-
-#### Outros
+- Javascript (React)
 - Typescript
+- CSS3
 
 ### Autor
 
