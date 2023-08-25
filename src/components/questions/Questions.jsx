@@ -30,18 +30,14 @@ const Questions = () => {
         type: "NEXT_QUESTION",
       });
     }
-
-    console.log(state.quiz.perguntaAtual);
-    console.log(arrayQuestionsShuffled.length);
   }
 
   return (
     <div className="centralContainerQuestions">
       <div className="mainContainerQuestions">
-
-        <div>
+        <div className="containerTitle">
           {arrayQuestionsShuffled.length ? (
-            <h1>{perguntaAtual.pergunta}</h1>
+            <h1 >{perguntaAtual.pergunta}</h1>
           ) : null}
         </div>
 
@@ -80,13 +76,16 @@ const Questions = () => {
             ))}
           </div>
         ) : null}
-
-        {state.quiz.respostaSelecionada && (
-          <button onClick={nextQuestion} className="nextQuestion">
-            Avançar
-          </button>
-        )}
       </div>
+        <button
+          onClick={nextQuestion}
+          className="nextQuestion"
+          style={{
+            visibility: state.quiz.respostaSelecionada ? "visible" : "hidden",
+          }}
+        >
+          Avançar
+        </button>
     </div>
   );
 };

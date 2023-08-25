@@ -7,49 +7,58 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   background-image: url("../../imgs/questions-background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
   height: 100vh;
-  padding: 20px;
 }
 
 .mainContainerQuestions {
-  width: 40vw;
+  width: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.mainContainerQuestions button {
-  padding: 10px;
-  color: black;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 30px;
-}
-
-.mainContainerQuestions h1 {
-  text-align: center;
-  background-color: rgb(255, 102, 0);
-  padding: 15px;
-  border-radius: 20px;
-}
-
-.alternativasContainer {
-  width: 100%;
-  border-radius: 20px;
-}
-
 .itemContainer {
   padding: 10px;
   background-color: brown;
-  margin-top: 40px;
+  margin-top: 20px;
   border-radius: 20px;
   cursor: pointer;
   color: black;
+  width: 40%;
+}
+
+
+.containerTitle {
+  background-color: rgb(255, 102, 0);
+  border-radius: 20px;
+  width: 70%;
+  padding: 5px;
+}
+
+.containerTitle h1 {
+  text-align: center;
+}
+
+
+.alternativasContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+
+.itemContainer p {
+  font-size: 1.5rem;
+  color: white;
 }
 
 .correct {
@@ -61,11 +70,38 @@
   opacity: 0.5;
 }
 
-.itemContainer p {
-  font-size: 35px;
-  color: white;
+.nextQuestion {
+  margin-top: 30px;
+  padding: 5px;
+  color: black;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.6rem;
 }
 
-.nextQuestion {
-  margin-top: 5px;
+@media (max-width: 768px) {
+  .containerTitle h1 {
+    font-size: 1.7rem;
+  }
 }
+
+
+@media (max-width: 450px) {
+  .containerTitle {
+    width: 100%;
+  }
+  
+  .containerTitle h1 {
+    font-size: 1.4rem;
+  }
+  
+
+  .itemContainer {
+    width: 65%;
+  }
+
+  .itemContainer p {
+    font-size: 1rem;
+  }
+}
+
